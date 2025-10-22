@@ -1,123 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profil GitHub - Bayu</title>
-  <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg" type="image/svg+xml">
-  <style>
-    :root {
-      --primary: #24292e;
-      --accent: #2ea44f;
-      --text: #f0f0f0;
-      --bg: #0d1117;
-    }
-    * {
-      box-sizing: border-box;
-      font-family: "Segoe UI", Roboto, sans-serif;
-      scroll-behavior: smooth;
-    }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      background: var(--primary);
-    }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-    }
-    header h1 {
-      margin-top: 1rem;
-      font-size: 2rem;
-    }
-    header p {
-      font-style: italic;
-      color: #ccc;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-    section {
-      margin-bottom: 2.5rem;
-    }
-    h2 {
-      border-left: 4px solid var(--accent);
-      padding-left: 0.5rem;
-    }
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .social-links a {
-      margin-right: 1rem;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      color: #888;
-      border-top: 1px solid #333;
-    }
-  </style>
 </head>
 <body>
-  <header>
-    <img src="https://avatars.githubusercontent.com/USERNAME" alt="Foto Profil GitHub">
-    <h1>Bayu – Software Engineering Teacher</h1>
-    <p>Guru RPL & Gim | Open Source Enthusiast | Coding, Jaringan, & Mikrotik</p>
-    <div class="social-links">
-      <a href="https://github.com/USERNAME" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/USERNAME" target="_blank">LinkedIn</a>
-      <a href="mailto:EMAILANDA@example.com">Email</a>
-    </div>
-  </header>
+  <h1>Profil GitHub</h1>
+  <h2 id="nama">Nama: </h2>
+  <p id="deskripsi"></p>
 
-  <main>
-    <section id="about">
-      <h2>Tentang Saya</h2>
-      <p>
-        Saya adalah seorang pendidik di bidang <strong>Rekayasa Perangkat Lunak dan Gim</strong>,
-        dengan fokus pada pengembangan web, jaringan, dan DevOps dasar.
-        Saya percaya bahwa pembelajaran terbaik datang dari praktik langsung dan kolaborasi.
-      </p>
-    </section>
+  <h3>Proyek Unggulan:</h3>
+  <ul id="daftar-proyek"></ul>
 
-    <section id="projects">
-      <h2>Proyek Unggulan</h2>
-      <ul>
-        <li><a href="https://github.com/USERNAME/project-1" target="_blank">Project 1 – Sistem Informasi Sekolah (CodeIgniter 3)</a></li>
-        <li><a href="https://github.com/USERNAME/project-2" target="_blank">Project 2 – Dashboard IoT Monitoring (Node.js + MQTT)</a></li>
-        <li><a href="https://github.com/USERNAME/project-3" target="_blank">Project 3 – Game Edukasi untuk Siswa SMK</a></li>
-      </ul>
-    </section>
+  <script>
+    // Data profil (bisa nanti diambil dari file JSON jika mau)
+    const profil = {
+      nama: "Bayu",
+      deskripsi: "Guru RPL & Gim di SMK YAPPI Wonosari. Fokus pada coding, jaringan, dan pengembangan perangkat lunak.",
+      proyek: [
+        { nama: "Sistem Informasi Sekolah", url: "https://github.com/USERNAME/project-1" },
+        { nama: "Dashboard IoT", url: "https://github.com/USERNAME/project-2" },
+        { nama: "Game Edukasi", url: "https://github.com/USERNAME/project-3" }
+      ]
+    };
 
-    <section id="skills">
-      <h2>Keahlian</h2>
-      <ul>
-        <li>💻 Pemrograman: PHP (CodeIgniter 3), JavaScript, Python</li>
-        <li>🌐 Web Development: HTML, CSS, Bootstrap, GitHub Pages</li>
-        <li>🧠 Networking: Mikrotik, Ubuntu Server, Web Hosting</li>
-        <li>🧩 Tools: Git, VS Code, Figma</li>
-      </ul>
-    </section>
-  </main>
+    // Tampilkan data ke halaman
+    document.getElementById("nama").textContent += profil.nama;
+    document.getElementById("deskripsi").textContent = profil.deskripsi;
 
-  <footer>
-    © 2025 Bayu • Dibuat dengan ❤️ dan GitHub Pages
-  </footer>
+    const daftarProyek = document.getElementById("daftar-proyek");
+    profil.proyek.forEach(p => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = p.url;
+      a.textContent = p.nama;
+      a.target = "_blank";
+      li.appendChild(a);
+      daftarProyek.appendChild(li);
+    });
+  </script>
 </body>
 </html>
